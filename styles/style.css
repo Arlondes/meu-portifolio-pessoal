@@ -160,7 +160,7 @@ a {
 
     body {
         height: 500%;
-        overflow-x: hiddem;
+        overflow-x: hidden;
     }
 
     .cabecalho {
