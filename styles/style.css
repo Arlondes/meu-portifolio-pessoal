@@ -160,6 +160,7 @@ a {
 
     body {
         height: 500%;
+        overflow-x: hiddem;
     }
 
     .cabecalho {
