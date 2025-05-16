@@ -470,6 +470,17 @@ main {
         transform: scale(0.8);
     }
 
+    .apresentacao_conteudo_titulo {
+        font-size: 1.4rem;
+    }
+    .apresentacao_conteudo_texto {
+        font-size: 0.9rem;
+    }
+
+    .apresentacao_links_link {
+        width: 65%;
+    }
+
     .cabecalho__menu__link,
     .cabecalho__menu__link1 {
         font-size: 1rem;
@@ -490,7 +501,7 @@ main {
     flex-wrap: wrap;
 }
 
-.cards-container .card {
+    .cards-container .card {
     width: 100px;
     height: 120px;
     font-size: 10px;
