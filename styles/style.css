@@ -40,7 +40,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 2% 70% 0 5%;
+    padding: 2% 70% 0 4%;
     background-color: #333;
     position: relative;
 }
@@ -50,7 +50,7 @@ a {
     justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
-    transform: translate(-3%, -50%);
+    transform: translate(-1%, -30%);
 }
 
 .cabecalho__menu__link,
