@@ -34,12 +34,6 @@ Também atuo como **videomaker**, com experiência em projetos audiovisuais para
 
 ---
 
-## 🔗 Link do projeto
-
-👉 **Portfólio online:** [https://meu-portifolio-pessoal.vercel.app](https://meu-portifolio-pessoal.vercel.app)
-
----
-
 <p align="center">
   Desenvolvido com 💜 por <strong>Arlondes Carvalho</strong>
 </p>
