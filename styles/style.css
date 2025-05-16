@@ -71,7 +71,6 @@ a {
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Efeito neon animado */
 .cabecalho__menu__link::before,
 .cabecalho__menu__link1::before {
     content: '';
@@ -90,15 +89,9 @@ a {
 }
 
 @keyframes neonGlow {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .cabecalho__menu__link1 {
@@ -196,11 +189,6 @@ a {
     background-color: var(--cor-quaternaria);
 }
 
-.cabecalho__menu__link:hover,
-.apresentacao_links_link:hover {
-    text-decoration: underline;
-}
-
 .link-whatsapp {
     height: 70px;
     position: fixed;
@@ -224,13 +212,23 @@ main {
     color: var(--cor-quaternaria);
 }
 
-.cards-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 30px;
+/* ---------- CERTIFICADOS ---------- */
+
+
+.certificado {
+    display: none;
+    text-align: center;
+    transition: all 0.5s ease;
+    animation: fadeIn 0.6s ease;
 }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* ---------- CARDS LINGUAGENS ---------- */
+
 
 .card {
     background-color: var(--cor-secundaria);
@@ -264,25 +262,11 @@ main {
     margin-bottom: 10px;
 }
 
-.python.letra {
-    background-color: #3776AB;
-}
-
-.html.letra {
-    background-color: #E34F26;
-}
-
-.css.letra {
-    background-color: #264DE4;
-}
-
-.javascript.letra {
-    background-color: #F7DF1E;
-}
-
-.react.letra {
-    background-color: #61DBFB;
-}
+.python.letra { background-color: #3776AB; }
+.html.letra   { background-color: #E34F26; }
+.css.letra    { background-color: #264DE4; }
+.javascript.letra { background-color: #F7DF1E; color: #333; }
+.react.letra  { background-color: #61DBFB; color: #000; }
 
 .card h2 {
     color: #333;
@@ -290,99 +274,220 @@ main {
     margin: 0;
 }
 
-/* RESPONSIVO */
+/* ---------- CARROSSEL ---------- */
+
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.carousel-container h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    padding: 0 40px; 
+    margin-bottom: 40%;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-track img {
+    width: 300px;
+    height: auto;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    scroll-snap-align: center;
+}
+
+.carousel-track img:hover {
+    transform: scale(1.05);
+}
+
+.carousel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+}
+
+.carousel .prev { left: 10px; }
+.carousel .next { right: 10px; }
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: var(--cor-quaternaria);
+}
+.carousel-indicators {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.carousel-indicators .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.4s;
+}
+
+.carousel-indicators .dot.active {
+  background-color: #717171;
+}
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px;
+}
+
+/* Estilo dos cards */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px;
+}
+
+
+/* ---------- RESPONSIVO ---------- */
 
 @media (max-width: 1268px) {
-  .cabecalho {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 15%;
-    background-color: #333;
-  }
+    .cabecalho {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 15%;
+    }
 
-  .logo {
-    font-family: var(--font-primaria);
-    font-size: 1.2rem;
-    color: white;
-  }
+    .cabecalho__menu {
+        
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        transform: translate(0%, 0%);
+        margin-left: -30%;
+    }
 
-  .cabecalho__menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    transform: none; /* Remove transform que estava bagunçando */
-  }
+    .apresentacao {
+        flex-direction: column-reverse;
+        padding: 5%;
+        gap: 40px;
+    }
 
-  .cabecalho__menu__link,
-  .cabecalho__menu__link1 {
-    font-size: 0.8rem;
-    padding: 4px 10px;
-  }
+    .apresentacao__conteudo,
+    .apresentacao_links_link {
+        width: 100%;
+    }
 
-  .apresentacao {
-    flex-direction: column-reverse;
-    padding: 5%;
-    gap: 40px;
-  }
-
-  .apresentacao__conteudo {
-    width: 100%;
-  }
-
-  .apresentacao_links_link {
-    width: 90%;
-  }
-
-  .imagem__principal {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-  }
-
-  .rodape {
-    font-size: 1rem;
-    padding: 10px 0;
-  }
+    .imagem__principal {
+        max-width: 300px;
+    }
 }
 
 
 @media (max-width: 480px) {
     .cabecalho {
         flex-direction: column;
-        align-items: center;
         text-align: center;
-        width: 100%;
-        padding: 10px 0;
-        
+        padding: 2% 20% -10%;
     }
 
-    .cabecalho h1 {
-        font-size: 1.2rem;
-        margin: 0;
-        transform: translate(-50%);
+    .logo {
+        margin-left: -70%;
     }
 
     .cabecalho__menu {
         flex-direction: row;
         justify-content: center;
-        align-items: center;
         gap: 10px;
-        flex-wrap: wrap;
-        width: 50%;
-        margin-top: 50px;
-        transform: translate(-0%, -50%);
+        width: 100%;
+        margin: 10%;
+        transform: translate(0, -30%);
     }
 
     .cabecalho__menu__link,
     .cabecalho__menu__link1 {
-        padding: 3px 16px;
         font-size: 1rem;
-        width: auto;
-        text-align: center;
+        padding: 3px 16px;
     }
+
+    .certificado img {
+        max-width: 100%;
+    }
+
+    .carousel-track img {
+        width: 250px;
+    }
+
+    .cards-container {
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.cards-container .card {
+    width: 100px;
+    height: 120px;
+    font-size: 10px;
+}
+
 }
